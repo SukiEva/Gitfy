@@ -38,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Bug Report"),
         "settingsPageTileBugReportDetail": MessageLookupByLibrary.simpleMessage(
             "Please do not report problems unrelated to this application!"),
+        "settingsPageTileLanguage":
+            MessageLookupByLibrary.simpleMessage("Language"),
         "settingsPageTilePrivacy":
             MessageLookupByLibrary.simpleMessage("Privacy"),
         "settingsPageTileSourceCode":

@@ -100,6 +100,16 @@ class S {
     );
   }
 
+  /// `Language`
+  String get settingsPageTileLanguage {
+    return Intl.message(
+      'Language',
+      name: 'settingsPageTileLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Others`
   String get settingsPageTitleOthers {
     return Intl.message(
@@ -177,6 +187,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
       Locale.fromSubtags(languageCode: 'zh', countryCode: 'CN'),
     ];
   }

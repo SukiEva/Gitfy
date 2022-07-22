@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageTileBugReport": MessageLookupByLibrary.simpleMessage("反馈"),
         "settingsPageTileBugReportDetail":
             MessageLookupByLibrary.simpleMessage("请不要报告与此应用无关的问题！"),
+        "settingsPageTileLanguage": MessageLookupByLibrary.simpleMessage("语言"),
         "settingsPageTilePrivacy": MessageLookupByLibrary.simpleMessage("隐私政策"),
         "settingsPageTileSourceCode":
             MessageLookupByLibrary.simpleMessage("源代码"),

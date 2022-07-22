@@ -6,10 +6,65 @@ import 'package:gitfy/pages/home.dart';
 import 'package:provider/provider.dart';
 
 import '../../generated/l10n.dart';
-import '../../provider/application.dart';
+import '../../states/locale_model.dart';
 
 class Material3App extends StatelessWidget {
   const Material3App({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => LocaleModel()),
+        ],
+        child: DynamicColorBuilder(
+            builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
+          ColorScheme lightColorScheme;
+          ColorScheme darkColorScheme;
+          if (lightDynamic != null && darkDynamic != null) {
+            lightColorScheme = lightDynamic.harmonized();
+            darkColorScheme = darkDynamic.harmonized();
+          } else {
+            lightColorScheme = materialScheme(false);
+            darkColorScheme = materialScheme(true);
+          }
+          return Consumer<LocaleModel>(
+              builder: (BuildContext context, localeModel, child) {
+            return MaterialApp(
+              title: 'Gitfy',
+              theme:
+                  ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
+              darkTheme:
+                  ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
+              home: const MainScreen(),
+              locale: localeModel.getLocale(),
+              supportedLocales: S.delegate.supportedLocales,
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+              ],
+              localeResolutionCallback: (sysLocale, supportedLocales) {
+                if (localeModel.getLocale() != null) {
+                  //如果已经选定语言，则不跟随系统
+                  return localeModel.getLocale();
+                } else {
+                  //跟随系统
+                  Locale locale;
+                  if (supportedLocales.contains(sysLocale)) {
+                    locale = sysLocale!;
+                  } else {
+                    //如果系统语言不是中文简体或美国英语，则默认使用美国英语
+                    locale = const Locale('en', 'US');
+                  }
+                  return locale;
+                }
+              },
+            );
+          });
+        }));
+  }
 
   ColorScheme materialScheme(bool isDark) {
     if (!isDark) {
@@ -41,41 +96,5 @@ class Material3App extends StatelessWidget {
           surface: MaterialDark.surface,
           onSurface: MaterialDark.onSurface);
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return MultiProvider(
-        providers: [ChangeNotifierProvider(create: (_) => Application())],
-        child: DynamicColorBuilder(
-            builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
-          ColorScheme lightColorScheme;
-          ColorScheme darkColorScheme;
-          if (lightDynamic != null && darkDynamic != null) {
-            // On Android S+ devices, use the provided dynamic color scheme.
-            // (Recommended) Harmonize the dynamic color scheme' built-in semantic colors.
-            lightColorScheme = lightDynamic.harmonized();
-            // Repeat for the dark color scheme.
-            darkColorScheme = darkDynamic.harmonized();
-          } else {
-            // Otherwise, use fallback schemes.
-            lightColorScheme = materialScheme(false);
-            darkColorScheme = materialScheme(true);
-          }
-          return MaterialApp(
-            title: 'Gitfy',
-            theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
-            darkTheme:
-                ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-            home: const MainScreen(),
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
-          );
-        }));
   }
 }

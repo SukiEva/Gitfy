@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gitfy/common/theme/theme.dart';
 
+import 'common/global.dart';
+
 void main() {
-  runApp(const MyApp());
+  Global.init().then((e) => runApp(const MyApp()));
   // Android 状态栏透明
   if (Platform.isAndroid) {
     SystemUiOverlayStyle systemUiOverlayStyle =
