@@ -1,0 +1,14 @@
+{
+  "bottomNavigationRepositoryTab": "Repository",
+  "bottomNavigationApplicationTab": "Application",
+  "bottomNavigationUpgradeTab": "Upgrade",
+  "bottomNavigationSettingTab": "Setting",
+  "settingsPageTitleCommon": "Common",
+  "settingsPageTitleOthers": "Others",
+  "settingsPageTileAuthor": "Author",
+  "settingsPageTileSourceCode": "Source Code",
+  "settingsPageTileBugReport": "Bug Report",
+  "settingsPageTileAppVersion": "App Version",
+  "settingsPageTilePrivacy": "Privacy",
+  "settingsPageTileBugReportDetail": "Please do not report problems unrelated to this application!"
+}

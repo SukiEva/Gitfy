@@ -1,0 +1,14 @@
+{
+  "bottomNavigationRepositoryTab": "仓库",
+  "bottomNavigationApplicationTab": "应用",
+  "bottomNavigationUpgradeTab": "更新",
+  "bottomNavigationSettingTab": "设置",
+  "settingsPageTitleCommon": "常规",
+  "settingsPageTitleOthers": "其它",
+  "settingsPageTileAuthor": "作者",
+  "settingsPageTileSourceCode": "源代码",
+  "settingsPageTileBugReport": "反馈",
+  "settingsPageTileAppVersion": "应用版本",
+  "settingsPageTilePrivacy": "隐私政策",
+  "settingsPageTileBugReportDetail": "请不要报告与此应用无关的问题！"
+}
