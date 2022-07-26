@@ -30,6 +30,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("设置"),
         "bottomNavigationUpgradeTab":
             MessageLookupByLibrary.simpleMessage("更新"),
+        "detailPageReleaseAssets": MessageLookupByLibrary.simpleMessage("附件"),
+        "detailPageTabBarInformationTab":
+            MessageLookupByLibrary.simpleMessage("信息"),
+        "detailPageTabBarReadmeTab": MessageLookupByLibrary.simpleMessage("自述"),
+        "detailPageTabBarReleasesTab":
+            MessageLookupByLibrary.simpleMessage("版本"),
         "settingsPageTileAppVersion":
             MessageLookupByLibrary.simpleMessage("应用版本"),
         "settingsPageTileAuthor": MessageLookupByLibrary.simpleMessage("作者"),

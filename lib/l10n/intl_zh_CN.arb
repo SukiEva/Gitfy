@@ -11,5 +11,9 @@
   "settingsPageTileBugReport": "反馈",
   "settingsPageTileAppVersion": "应用版本",
   "settingsPageTilePrivacy": "隐私政策",
-  "settingsPageTileBugReportDetail": "请不要报告与此应用无关的问题！"
+  "settingsPageTileBugReportDetail": "请不要报告与此应用无关的问题！",
+  "detailPageTabBarReadmeTab": "自述",
+  "detailPageTabBarReleasesTab": "版本",
+  "detailPageTabBarInformationTab": "信息",
+  "detailPageReleaseAssets": "附件"
 }

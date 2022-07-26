@@ -179,6 +179,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Readme`
+  String get detailPageTabBarReadmeTab {
+    return Intl.message(
+      'Readme',
+      name: 'detailPageTabBarReadmeTab',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Releases`
+  String get detailPageTabBarReleasesTab {
+    return Intl.message(
+      'Releases',
+      name: 'detailPageTabBarReleasesTab',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Information`
+  String get detailPageTabBarInformationTab {
+    return Intl.message(
+      'Information',
+      name: 'detailPageTabBarInformationTab',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Assets`
+  String get detailPageReleaseAssets {
+    return Intl.message(
+      'Assets',
+      name: 'detailPageReleaseAssets',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

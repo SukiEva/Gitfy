@@ -30,6 +30,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Setting"),
         "bottomNavigationUpgradeTab":
             MessageLookupByLibrary.simpleMessage("Upgrade"),
+        "detailPageReleaseAssets":
+            MessageLookupByLibrary.simpleMessage("Assets"),
+        "detailPageTabBarInformationTab":
+            MessageLookupByLibrary.simpleMessage("Information"),
+        "detailPageTabBarReadmeTab":
+            MessageLookupByLibrary.simpleMessage("Readme"),
+        "detailPageTabBarReleasesTab":
+            MessageLookupByLibrary.simpleMessage("Releases"),
         "settingsPageTileAppVersion":
             MessageLookupByLibrary.simpleMessage("App Version"),
         "settingsPageTileAuthor":

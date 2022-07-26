@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 
-class ColorConstants {
-  static const Color background = Color(0xfffcfcff);
-  static const Color appBarTitle = Colors.black;
-}
-
 class MaterialLight {
   static const Color primary = Color(0xFF6750A4);
   static const Color onPrimary = Color(0xFFFFFFFF);

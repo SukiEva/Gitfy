@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gitfy/common/theme/theme.dart';
+import 'package:gitfy/pages/theme.dart';
 
 import 'common/global.dart';
 

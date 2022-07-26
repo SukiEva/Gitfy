@@ -1,12 +1,12 @@
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:gitfy/common/theme/color.dart';
-import 'package:gitfy/pages/home.dart';
+import 'package:gitfy/common/color.dart';
 import 'package:provider/provider.dart';
 
-import '../../generated/l10n.dart';
-import '../../states/locale_model.dart';
+import '../generated/l10n.dart';
+import '../states/locale_model.dart';
+import 'main_screen.dart';
 
 class Material3App extends StatelessWidget {
   const Material3App({Key? key}) : super(key: key);

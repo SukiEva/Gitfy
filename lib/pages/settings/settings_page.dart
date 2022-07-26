@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gitfy/common/global.dart';
 import 'package:gitfy/widgets/list_item.dart';
-import 'package:package_info/package_info.dart';
 import 'package:provider/provider.dart';
 
-import '../generated/l10n.dart';
-import '../states/locale_model.dart';
+import '../../generated/l10n.dart';
+import '../../states/locale_model.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -22,9 +22,8 @@ class _SettingsPageState extends State<SettingsPage> {
     var color = Theme.of(context).colorScheme;
     var locale = S.current;
     var localeModel = Provider.of<LocaleModel>(context);
-    PackageInfo.fromPlatform().then((PackageInfo packageInfo) {
-      _version = "${packageInfo.version}(${packageInfo.buildNumber})";
-    });
+    var packageInfo = Global.packageInfo;
+    _version = "${packageInfo.version}(${packageInfo.buildNumber})";
 
     PopupMenuItem _buildLanguageItem(String lan, value) {
       return PopupMenuItem(
@@ -43,6 +42,7 @@ class _SettingsPageState extends State<SettingsPage> {
     }
 
     return ListView(
+      padding: EdgeInsets.zero,
       children: [
         ListTile(
           // 常规
@@ -54,7 +54,7 @@ class _SettingsPageState extends State<SettingsPage> {
             child: ListItem(
               icon: Icons.language,
               title: locale.settingsPageTileLanguage,
-              body: _language,
+              subtitle: _language,
             ),
             itemBuilder: (BuildContext context) => <PopupMenuEntry>[
                   _buildLanguageItem("Default", null),
@@ -70,28 +70,28 @@ class _SettingsPageState extends State<SettingsPage> {
           // 作者
           icon: Icons.person,
           title: locale.settingsPageTileAuthor,
-          body: "SukiEva",
+          subtitle: "SukiEva",
           launch: "https://github.com/SukiEva",
         ),
         ListItem(
           // 源代码
           icon: Icons.code,
           title: locale.settingsPageTileSourceCode,
-          body: "https://github.com/SukiEva/Gitfy",
+          subtitle: "https://github.com/SukiEva/Gitfy",
           launch: "https://github.com/SukiEva/Gitfy",
         ),
         ListItem(
           // 反馈
           icon: Icons.bug_report,
           title: locale.settingsPageTileBugReport,
-          body: locale.settingsPageTileBugReportDetail,
+          subtitle: locale.settingsPageTileBugReportDetail,
           launch: "https://github.com/SukiEva/Gitfy/issues",
         ),
         ListItem(
             // 应用版本
             icon: Icons.android,
             title: locale.settingsPageTileAppVersion,
-            body: _version),
+            subtitle: _version),
         ListItem(
             // 隐私政策
             icon: Icons.privacy_tip,
