@@ -5,7 +5,6 @@ import '../../generated/l10n.dart';
 class BottomNavigation extends StatefulWidget {
   final int tabIndex;
 
-  //final Function(int index) pageController;
   final PageController pageController;
 
   const BottomNavigation(
@@ -28,9 +27,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
           icon: const Icon(Icons.dashboard_outlined),
           label: locale.bottomNavigationRepositoryTab),
       NavigationDestination(
-          icon: const Icon(Icons.extension_outlined),
-          label: locale.bottomNavigationApplicationTab),
-      NavigationDestination(
           icon: const Icon(Icons.rocket_launch_outlined),
           label: locale.bottomNavigationUpgradeTab),
       NavigationDestination(
@@ -44,7 +40,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
         onDestinationSelected: (index) {
           setState(() {
             _tabIndex = index;
-            //widget.pageController(index);
             widget.pageController.jumpToPage(index);
           });
         });

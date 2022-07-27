@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gitfy/common/global.dart';
 import 'package:gitfy/common/launcher.dart';
 import 'package:gitfy/models/index.dart';
 import 'package:intl/intl.dart';
@@ -8,9 +9,11 @@ import 'package:intl/intl.dart';
 import '../generated/l10n.dart';
 
 class ReleaseItem extends StatelessWidget {
+  final Repo repo;
   final Release release;
 
-  const ReleaseItem({Key? key, required this.release}) : super(key: key);
+  const ReleaseItem({Key? key, required this.repo, required this.release})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,8 @@ class ReleaseItem extends StatelessWidget {
           const FaIcon(FontAwesomeIcons.tag, size: 15),
           Text(" ${release.tag}"),
           const Spacer(),
-          if (release.preRelease) const FaIcon(FontAwesomeIcons.circleExclamation, size: 15),
+          if (release.preRelease)
+            const FaIcon(FontAwesomeIcons.circleExclamation, size: 15),
           if (release.preRelease) const Text(" Pre Release"),
           if (release.preRelease) const Spacer(),
           const FaIcon(FontAwesomeIcons.calendar, size: 15),
@@ -69,7 +73,11 @@ class ReleaseItem extends StatelessWidget {
               launch(release.url);
             },
             child: const Icon(Icons.open_in_browser_outlined)),
-        ElevatedButton(onPressed: () {}, child: const Icon(Icons.new_label_outlined))
+        ElevatedButton(
+            onPressed: () {
+              Global.prefs.mark(repo, release.tag);
+            },
+            child: const Icon(Icons.new_label_outlined))
       ],
     );
   }

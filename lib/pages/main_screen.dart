@@ -1,9 +1,9 @@
 import 'package:flukit/flukit.dart';
 import 'package:flutter/material.dart';
-import 'package:gitfy/pages/application/application_page.dart';
 import 'package:gitfy/pages/repository/repository_page.dart';
 import 'package:gitfy/pages/settings/settings_page.dart';
 import 'package:gitfy/pages/upgrade/upgrade_page.dart';
+
 import '../widgets/bottom_navigation.dart';
 import '../widgets/top_bar.dart';
 
@@ -15,7 +15,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _tabIndex = 1;
+  int _tabIndex = 0;
   late PageController _pageController;
 
   late List<Widget> _pages;
@@ -24,7 +24,6 @@ class _MainScreenState extends State<MainScreen> {
     _pageController = PageController(initialPage: _tabIndex);
     _pages = [
       const KeepAliveWrapper(child: RepositoryPage()),
-      const KeepAliveWrapper(child: ApplicationPage()),
       const KeepAliveWrapper(child: UpgradePage()),
       const KeepAliveWrapper(child: SettingsPage())
     ];
@@ -35,7 +34,6 @@ class _MainScreenState extends State<MainScreen> {
       if (_tabIndex != index) _tabIndex = index;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +46,12 @@ class _MainScreenState extends State<MainScreen> {
         tabIndex: _tabIndex,
         pageController: _pageController,
       ),
+      floatingActionButton:
+          _tabIndex != 0 ? null :
+          FloatingActionButton(
+              child: const Icon(Icons.add),
+              onPressed: () {}
+          ),
     );
   }
 
@@ -57,14 +61,12 @@ class _MainScreenState extends State<MainScreen> {
 
   Widget buildBody(BuildContext context) {
     return SafeArea(
-      child:
-          //_pages.elementAt(_tabIndex)
-          PageView(
-              // 禁止页面左右滑动切换
-              physics: const NeverScrollableScrollPhysics(),
-              controller: _pageController,
-              onPageChanged: _pageChanged,
-              children: _pages),
+      child: PageView(
+          // 禁止页面左右滑动切换
+          physics: const NeverScrollableScrollPhysics(),
+          controller: _pageController,
+          onPageChanged: _pageChanged,
+          children: _pages),
     );
   }
 }

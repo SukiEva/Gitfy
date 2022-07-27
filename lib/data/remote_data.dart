@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:gitfy/data/local_data.dart';
 import 'package:gitfy/models/index.dart';
 
-class RepoData {
+class RemoteData {
   final _dio = Dio();
   final _localData = LocalData();
   final String baseUrl = "http://103.151.217.221:9898";

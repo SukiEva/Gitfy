@@ -67,7 +67,8 @@ class _DetailPageState extends State<DetailPage> {
                         ? KeepAliveWrapper(
                             child: ReadmePage(data: _info.readme))
                         : KeepAliveWrapper(
-                            child: ReleasesPage(releases: _info.releases));
+                            child: ReleasesPage(
+                                repo: _info.repo, releases: _info.releases));
                   },
                 ),
               ),
