@@ -6,7 +6,7 @@ import 'package:gitfy/common/launcher.dart';
 import 'package:gitfy/models/index.dart';
 import 'package:intl/intl.dart';
 
-import '../generated/l10n.dart';
+import '../../generated/l10n.dart';
 
 class ReleaseItem extends StatelessWidget {
   final Repo repo;

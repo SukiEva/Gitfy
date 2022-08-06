@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gitfy/common/global.dart';
 import 'package:gitfy/widgets/list_item.dart';
 import 'package:provider/provider.dart';
 
 import '../../generated/l10n.dart';
 import '../../states/locale_model.dart';
+import '../../states/user_model.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -49,6 +51,12 @@ class _SettingsPageState extends State<SettingsPage> {
           title: Text(locale.settingsPageTitleCommon),
           textColor: color.primary,
         ),
+        ListItem(
+            icon: Icons.sync,
+            title: locale.settingsPageTileSync,
+            onTap: () {
+              _showSync(context);
+            }),
         PopupMenuButton(
             color: color.onInverseSurface,
             child: ListItem(
@@ -97,6 +105,46 @@ class _SettingsPageState extends State<SettingsPage> {
             icon: Icons.privacy_tip,
             title: locale.settingsPageTilePrivacy),
       ],
+    );
+  }
+
+  Future<void> _showSync(BuildContext context) async {
+    var userModel = Provider.of<UserModel>(context, listen: false);
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
+          title: Text(S.current.settingsPageTileSync),
+          content: SingleChildScrollView(
+              child: ListBody(
+            children: [
+              TextField(
+                readOnly: true,
+                controller:
+                    TextEditingController(text: userModel.user ?? "null"),
+                decoration: InputDecoration(
+                  labelText: '用户',
+                ),
+                onTap: () {
+                  Clipboard.setData(ClipboardData(text: userModel.user));
+                },
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: '切换',
+                ),
+              )
+            ],
+          )),
+          actions: [
+            userModel.user == null
+                ? TextButton(onPressed: null, child: Text("注册"))
+                : TextButton(onPressed: null, child: Text("同步"))
+          ],
+        );
+      },
     );
   }
 }

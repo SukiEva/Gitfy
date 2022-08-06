@@ -46,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageTilePrivacy": MessageLookupByLibrary.simpleMessage("隐私政策"),
         "settingsPageTileSourceCode":
             MessageLookupByLibrary.simpleMessage("源代码"),
+        "settingsPageTileSync": MessageLookupByLibrary.simpleMessage("同步"),
         "settingsPageTitleCommon": MessageLookupByLibrary.simpleMessage("常规"),
         "settingsPageTitleOthers": MessageLookupByLibrary.simpleMessage("其它")
       };

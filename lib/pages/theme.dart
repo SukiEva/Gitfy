@@ -2,6 +2,7 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:gitfy/common/color.dart';
+import 'package:gitfy/states/user_model.dart';
 import 'package:provider/provider.dart';
 
 import '../generated/l10n.dart';
@@ -16,6 +17,7 @@ class Material3App extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => LocaleModel()),
+          ChangeNotifierProvider(create: (_) => UserModel())
         ],
         child: DynamicColorBuilder(
             builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {

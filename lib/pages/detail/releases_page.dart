@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gitfy/widgets/release_item.dart';
+import 'package:gitfy/pages/detail/release_item.dart';
 
 import '../../models/release.dart';
 import '../../models/repo.dart';

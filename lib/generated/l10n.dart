@@ -100,6 +100,16 @@ class S {
     );
   }
 
+  /// `Sync`
+  String get settingsPageTileSync {
+    return Intl.message(
+      'Sync',
+      name: 'settingsPageTileSync',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Language`
   String get settingsPageTileLanguage {
     return Intl.message(

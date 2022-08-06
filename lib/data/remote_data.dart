@@ -11,7 +11,7 @@ class RemoteData {
 
   Future<List<Data>> getAll() async {
     try {
-      var response = await _dio.get("$baseUrl/api/repo/getAll");
+      var response = await _dio.get("$baseUrl/api/repo/get");
       if (response.statusCode != 200) return [];
       var result = Result.fromJson(response.data);
       if (result.code != 200 || result.data == null) return [];
