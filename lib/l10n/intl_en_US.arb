@@ -28,5 +28,11 @@
   "toastSyncProcessing": "Syncing...",
   "floatButtonDialogTitle": "Notice",
   "floatButtonDialogUserEmpty": "Current user is empty",
-  "floatButtonDialogUserHint": "Please go to the settings page to register or login"
+  "floatButtonDialogUserHint": "Please go to the settings page to register or login",
+  "floatButtonAddTitle": "Subscribe to updates",
+  "floatButtonAddHint": "Link",
+  "floatButtonAddSubscribe": "Subscribe",
+  "floatButtonAddSubscribeError": "Syntax error",
+  "floatButtonAddSubscribeFail": "Please check if the link is correct",
+  "floatButtonAddSubscribeToast": "Please pull down to refresh"
 }

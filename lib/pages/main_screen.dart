@@ -4,6 +4,7 @@ import 'package:gitfy/common/global.dart';
 import 'package:gitfy/pages/repository/repository_page.dart';
 import 'package:gitfy/pages/settings/settings_page.dart';
 import 'package:gitfy/pages/upgrade/upgrade_page.dart';
+import 'package:oktoast/oktoast.dart';
 
 import '../generated/l10n.dart';
 import '../widgets/bottom_navigation.dart';
@@ -53,7 +54,9 @@ class _MainScreenState extends State<MainScreen> {
           : FloatingActionButton(
               child: const Icon(Icons.add),
               onPressed: () {
-                if (Global.application.user != null) _showAlert(context);
+                Global.application.user == null
+                    ? _showAlert(context)
+                    : _showAdd(context);
               }),
     );
   }
@@ -71,6 +74,46 @@ class _MainScreenState extends State<MainScreen> {
           onPageChanged: _pageChanged,
           children: _pages),
     );
+  }
+
+  Future _showAdd(BuildContext context) async {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          var controller = TextEditingController();
+          return AlertDialog(
+            title: Text(S.current.floatButtonAddTitle),
+            content: SingleChildScrollView(
+                child: ListBody(children: [
+              TextField(
+                controller: controller,
+                decoration: InputDecoration(
+                  labelText: S.current.floatButtonAddHint,
+                  hintText: "https://github/SukiEva/Gitfy",
+                ),
+              )
+            ])),
+            actions: [
+              TextButton(
+                  onPressed: () async {
+                    var link = controller.text.substring(8).split('/');
+                    if (link.length != 3 || link[0] != "github.com") {
+                      showToast(S.current.floatButtonAddSubscribeError);
+                      return;
+                    }
+                    var success = await Global.dao.follow(link);
+                    if (!success) {
+                      showToast(S.current.floatButtonAddSubscribeFail);
+                      return;
+                    }
+                    showToast(S.current.floatButtonAddSubscribeToast);
+                    if (!mounted) return;
+                    Navigator.of(context).pop(context);
+                  },
+                  child: Text(S.current.floatButtonAddSubscribe)),
+            ],
+          );
+        });
   }
 
   Future _showAlert(BuildContext context) async {

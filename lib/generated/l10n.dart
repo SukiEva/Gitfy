@@ -349,6 +349,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Subscribe to updates`
+  String get floatButtonAddTitle {
+    return Intl.message(
+      'Subscribe to updates',
+      name: 'floatButtonAddTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Link`
+  String get floatButtonAddHint {
+    return Intl.message(
+      'Link',
+      name: 'floatButtonAddHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subscribe`
+  String get floatButtonAddSubscribe {
+    return Intl.message(
+      'Subscribe',
+      name: 'floatButtonAddSubscribe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Syntax error`
+  String get floatButtonAddSubscribeError {
+    return Intl.message(
+      'Syntax error',
+      name: 'floatButtonAddSubscribeError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check if the link is correct`
+  String get floatButtonAddSubscribeFail {
+    return Intl.message(
+      'Please check if the link is correct',
+      name: 'floatButtonAddSubscribeFail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please pull down to refresh`
+  String get floatButtonAddSubscribeToast {
+    return Intl.message(
+      'Please pull down to refresh',
+      name: 'floatButtonAddSubscribeToast',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

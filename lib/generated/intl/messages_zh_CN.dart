@@ -36,6 +36,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "detailPageTabBarReadmeTab": MessageLookupByLibrary.simpleMessage("自述"),
         "detailPageTabBarReleasesTab":
             MessageLookupByLibrary.simpleMessage("版本"),
+        "floatButtonAddHint": MessageLookupByLibrary.simpleMessage("仓库链接"),
+        "floatButtonAddSubscribe": MessageLookupByLibrary.simpleMessage("订阅"),
+        "floatButtonAddSubscribeError":
+            MessageLookupByLibrary.simpleMessage("格式错误"),
+        "floatButtonAddSubscribeFail":
+            MessageLookupByLibrary.simpleMessage("请检查链接是否正确"),
+        "floatButtonAddSubscribeToast":
+            MessageLookupByLibrary.simpleMessage("请下拉刷新"),
+        "floatButtonAddTitle": MessageLookupByLibrary.simpleMessage("订阅仓库更新"),
         "floatButtonDialogTitle": MessageLookupByLibrary.simpleMessage("注意"),
         "floatButtonDialogUserEmpty":
             MessageLookupByLibrary.simpleMessage("当前用户为空"),

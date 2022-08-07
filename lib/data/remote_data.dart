@@ -13,8 +13,8 @@ class RemoteData {
 
   Future<List<Data>> getAll() async {
     try {
-      var response =
-          await _dio.get("$baseUrl/api/repo/getByUser", queryParameters: {"uid": Global.application.user});
+      var response = await _dio.get("$baseUrl/api/repo/getByUser",
+          queryParameters: {"uid": Global.application.user});
       if (response.statusCode != 200) return [];
       var result = Result.fromJson(response.data);
       if (result.code != 200 || result.data == null) return [];
@@ -32,6 +32,42 @@ class RemoteData {
     }
   }
 
+  Future<bool> follow(Repo repo) async {
+    try {
+      // var postData = repo.toJson();
+      // postData["uid"] = Global.application.user;
+      // print(postData);
+      var response =
+          await _dio.post("$baseUrl/api/user/follow", data: {
+            'uid':Global.application.user,
+            'platform':repo.platform,
+            'owner':repo.owner,
+            'repo':repo.repo
+          });
+      if (_check(response)) return true;
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+    return false;
+  }
+
+  Future<bool> unFollow(Repo repo) async {
+    try {
+      var postData = repo.toJson();
+      postData["uid"] = Global.application.user;
+      var response =
+          await _dio.post("$baseUrl/api/user/unFollow", data: postData);
+      if (_check(response)) return true;
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
+    return false;
+  }
+
   Future<String?> register() async {
     try {
       var response = await _dio.post("$baseUrl/api/user/generate");
@@ -46,4 +82,10 @@ class RemoteData {
     }
   }
 
+  bool _check(Response response) {
+    if (response.statusCode != 200) return false;
+    var result = Result.fromJson(response.data);
+    if (result.code != 200) return false;
+    return true;
+  }
 }

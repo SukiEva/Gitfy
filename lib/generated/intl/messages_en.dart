@@ -38,6 +38,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Readme"),
         "detailPageTabBarReleasesTab":
             MessageLookupByLibrary.simpleMessage("Releases"),
+        "floatButtonAddHint": MessageLookupByLibrary.simpleMessage("Link"),
+        "floatButtonAddSubscribe":
+            MessageLookupByLibrary.simpleMessage("Subscribe"),
+        "floatButtonAddSubscribeError":
+            MessageLookupByLibrary.simpleMessage("Syntax error"),
+        "floatButtonAddSubscribeFail": MessageLookupByLibrary.simpleMessage(
+            "Please check if the link is correct"),
+        "floatButtonAddSubscribeToast":
+            MessageLookupByLibrary.simpleMessage("Please pull down to refresh"),
+        "floatButtonAddTitle":
+            MessageLookupByLibrary.simpleMessage("Subscribe to updates"),
         "floatButtonDialogTitle":
             MessageLookupByLibrary.simpleMessage("Notice"),
         "floatButtonDialogUserEmpty":

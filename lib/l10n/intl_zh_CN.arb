@@ -28,5 +28,11 @@
   "toastSyncProcessing": "同步中...",
   "floatButtonDialogTitle": "注意",
   "floatButtonDialogUserEmpty": "当前用户为空",
-  "floatButtonDialogUserHint": "请先前往设置页注册或登录"
+  "floatButtonDialogUserHint": "请先前往设置页注册或登录",
+  "floatButtonAddTitle": "订阅仓库更新",
+  "floatButtonAddHint": "仓库链接",
+  "floatButtonAddSubscribe": "订阅",
+  "floatButtonAddSubscribeError": "格式错误",
+  "floatButtonAddSubscribeFail": "请检查链接是否正确",
+  "floatButtonAddSubscribeToast": "请下拉刷新"
 }
