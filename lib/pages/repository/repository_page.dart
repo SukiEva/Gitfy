@@ -38,7 +38,6 @@ class _RepositoryPageSate extends State<RepositoryPage> {
 
   Widget buildSuccess(BuildContext context, List<Data> data) {
     return RefreshIndicator(
-        backgroundColor: Colors.transparent,
         onRefresh: () async {
           await _dao.getRemote();
           setState(() {});

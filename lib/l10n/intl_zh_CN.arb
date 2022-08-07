@@ -13,8 +13,20 @@
   "settingsPageTileAppVersion": "应用版本",
   "settingsPageTilePrivacy": "隐私政策",
   "settingsPageTileBugReportDetail": "请不要报告与此应用无关的问题！",
+  "settingsPageSyncCredentials": "用户凭证",
+  "settingsPageSyncSwitch": "用户切换",
+  "settingsPageSyncButtonRegister": "注册",
+  "settingsPageSyncButtonSwitch": "切换",
+  "settingsPageSyncButtonSync": "同步",
   "detailPageTabBarReadmeTab": "自述",
   "detailPageTabBarReleasesTab": "版本",
   "detailPageTabBarInformationTab": "信息",
-  "detailPageReleaseAssets": "附件"
+  "detailPageReleaseAssets": "附件",
+  "toastCopiedToClipboard": "已复制到剪贴板",
+  "toastRegisterSuccess": "注册成功",
+  "toastSwitchSuccess": "切换成功",
+  "toastSyncProcessing": "同步中...",
+  "floatButtonDialogTitle": "注意",
+  "floatButtonDialogUserEmpty": "当前用户为空",
+  "floatButtonDialogUserHint": "请先前往设置页注册或登录"
 }

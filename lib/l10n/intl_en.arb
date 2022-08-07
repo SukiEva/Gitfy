@@ -13,8 +13,20 @@
   "settingsPageTileAppVersion": "App Version",
   "settingsPageTilePrivacy": "Privacy",
   "settingsPageTileBugReportDetail": "Please do not report problems unrelated to this application!",
+  "settingsPageSyncCredentials": "Credentials",
+  "settingsPageSyncSwitch": "Switch user",
+  "settingsPageSyncButtonRegister": "Register",
+  "settingsPageSyncButtonSwitch": "Switch",
+  "settingsPageSyncButtonSync": "Sync",
   "detailPageTabBarReadmeTab": "Readme",
   "detailPageTabBarReleasesTab": "Releases",
   "detailPageTabBarInformationTab": "Information",
-  "detailPageReleaseAssets": "Assets"
+  "detailPageReleaseAssets": "Assets",
+  "toastCopiedToClipboard": "Copied to clipboard",
+  "toastRegisterSuccess": "Registered successfully",
+  "toastSwitchSuccess": "Switched successfully",
+  "toastSyncProcessing": "Syncing...",
+  "floatButtonDialogTitle": "Notice",
+  "floatButtonDialogUserEmpty": "Current user is empty",
+  "floatButtonDialogUserHint": "Please go to the settings page to register or login"
 }

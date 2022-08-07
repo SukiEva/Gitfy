@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gitfy/common/global.dart';
 import 'package:gitfy/widgets/list_item.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
 import '../../generated/l10n.dart';
-import '../../states/locale_model.dart';
-import '../../states/user_model.dart';
+import '../../states/locale_state.dart';
+import '../../states/user_state.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     var color = Theme.of(context).colorScheme;
     var locale = S.current;
-    var localeModel = Provider.of<LocaleModel>(context);
+    var localeModel = Provider.of<LocaleState>(context);
     var packageInfo = Global.packageInfo;
     _version = "${packageInfo.version}(${packageInfo.buildNumber})";
 
@@ -109,41 +110,67 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Future<void> _showSync(BuildContext context) async {
-    var userModel = Provider.of<UserModel>(context, listen: false);
     return showDialog<void>(
       context: context,
       barrierDismissible: true,
       builder: (BuildContext context) {
-        return AlertDialog(
-          backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
-          title: Text(S.current.settingsPageTileSync),
-          content: SingleChildScrollView(
-              child: ListBody(
-            children: [
-              TextField(
-                readOnly: true,
-                controller:
-                    TextEditingController(text: userModel.user ?? "null"),
-                decoration: InputDecoration(
-                  labelText: '用户',
+        return Consumer<UserState>(
+            builder: (BuildContext context, userState, child) {
+          var controller = TextEditingController();
+          var userChange = Provider.of<UserState>(context);
+          return AlertDialog(
+            backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
+            title: Text(S.current.settingsPageTileSync),
+            content: SingleChildScrollView(
+                child: ListBody(
+              children: [
+                TextField(
+                  readOnly: true,
+                  controller:
+                      TextEditingController(text: userState.user ?? "null"),
+                  decoration: InputDecoration(
+                    labelText: S.current.settingsPageSyncCredentials,
+                  ),
+                  onTap: () {
+                    Clipboard.setData(
+                        ClipboardData(text: Global.application.user));
+                    showToast(S.current.toastCopiedToClipboard);
+                  },
                 ),
-                onTap: () {
-                  Clipboard.setData(ClipboardData(text: userModel.user));
-                },
-              ),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: '切换',
-                ),
-              )
+                TextField(
+                  controller: controller,
+                  decoration: InputDecoration(
+                    labelText: S.current.settingsPageSyncSwitch,
+                  ),
+                )
+              ],
+            )),
+            actions: [
+              if (Global.application.user == null)
+                TextButton(
+                    onPressed: () async {
+                      userChange.user = await Global.dao.register();
+                      showToast(S.current.toastRegisterSuccess);
+                      if (!mounted) return;
+                      Navigator.of(context).pop(context);
+                    },
+                    child: Text(S.current.settingsPageSyncButtonRegister)),
+              TextButton(
+                  onPressed: () {
+                    userChange.user = controller.text;
+                    showToast(S.current.toastSwitchSuccess);
+                    Navigator.of(context).pop(context);
+                  },
+                  child: Text(S.current.settingsPageSyncButtonSwitch)),
+              // TextButton(
+              //     onPressed: () {
+              //       showToast(S.current.toastSyncProcessing);
+              //       Navigator.of(context).pop();
+              //     },
+              //     child: Text(S.current.settingsPageSyncButtonSync))
             ],
-          )),
-          actions: [
-            userModel.user == null
-                ? TextButton(onPressed: null, child: Text("注册"))
-                : TextButton(onPressed: null, child: Text("同步"))
-          ],
-        );
+          );
+        });
       },
     );
   }

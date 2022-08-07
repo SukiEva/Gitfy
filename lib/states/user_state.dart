@@ -1,6 +1,6 @@
 import 'package:gitfy/states/app_change_notifier.dart';
 
-class UserModel extends AppChangeNotifier {
+class UserState extends AppChangeNotifier {
   String? get user => application.user;
 
   set user(String? user) {

@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'app_change_notifier.dart';
 
-class LocaleModel extends AppChangeNotifier {
+class LocaleState extends AppChangeNotifier {
   // 获取当前用户的APP语言配置Locale类，如果为null，则语言跟随系统语言
   Locale? getLocale() {
     if (application.locale == null) return null;

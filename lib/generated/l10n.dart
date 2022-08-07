@@ -190,6 +190,56 @@ class S {
     );
   }
 
+  /// `Credentials`
+  String get settingsPageSyncCredentials {
+    return Intl.message(
+      'Credentials',
+      name: 'settingsPageSyncCredentials',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Switch user`
+  String get settingsPageSyncSwitch {
+    return Intl.message(
+      'Switch user',
+      name: 'settingsPageSyncSwitch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get settingsPageSyncButtonRegister {
+    return Intl.message(
+      'Register',
+      name: 'settingsPageSyncButtonRegister',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Switch`
+  String get settingsPageSyncButtonSwitch {
+    return Intl.message(
+      'Switch',
+      name: 'settingsPageSyncButtonSwitch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sync`
+  String get settingsPageSyncButtonSync {
+    return Intl.message(
+      'Sync',
+      name: 'settingsPageSyncButtonSync',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Readme`
   String get detailPageTabBarReadmeTab {
     return Intl.message(
@@ -225,6 +275,76 @@ class S {
     return Intl.message(
       'Assets',
       name: 'detailPageReleaseAssets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Copied to clipboard`
+  String get toastCopiedToClipboard {
+    return Intl.message(
+      'Copied to clipboard',
+      name: 'toastCopiedToClipboard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registered successfully`
+  String get toastRegisterSuccess {
+    return Intl.message(
+      'Registered successfully',
+      name: 'toastRegisterSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Switched successfully`
+  String get toastSwitchSuccess {
+    return Intl.message(
+      'Switched successfully',
+      name: 'toastSwitchSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Syncing...`
+  String get toastSyncProcessing {
+    return Intl.message(
+      'Syncing...',
+      name: 'toastSyncProcessing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notice`
+  String get floatButtonDialogTitle {
+    return Intl.message(
+      'Notice',
+      name: 'floatButtonDialogTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current user is empty`
+  String get floatButtonDialogUserEmpty {
+    return Intl.message(
+      'Current user is empty',
+      name: 'floatButtonDialogUserEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please go to the settings page to register or login`
+  String get floatButtonDialogUserHint {
+    return Intl.message(
+      'Please go to the settings page to register or login',
+      name: 'floatButtonDialogUserHint',
       desc: '',
       args: [],
     );

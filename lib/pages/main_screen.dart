@@ -1,9 +1,11 @@
 import 'package:flukit/flukit.dart';
 import 'package:flutter/material.dart';
+import 'package:gitfy/common/global.dart';
 import 'package:gitfy/pages/repository/repository_page.dart';
 import 'package:gitfy/pages/settings/settings_page.dart';
 import 'package:gitfy/pages/upgrade/upgrade_page.dart';
 
+import '../generated/l10n.dart';
 import '../widgets/bottom_navigation.dart';
 import '../widgets/top_bar.dart';
 
@@ -46,12 +48,13 @@ class _MainScreenState extends State<MainScreen> {
         tabIndex: _tabIndex,
         pageController: _pageController,
       ),
-      floatingActionButton:
-          _tabIndex != 0 ? null :
-          FloatingActionButton(
+      floatingActionButton: _tabIndex != 0
+          ? null
+          : FloatingActionButton(
               child: const Icon(Icons.add),
-              onPressed: () {}
-          ),
+              onPressed: () {
+                if (Global.application.user != null) _showAlert(context);
+              }),
     );
   }
 
@@ -68,5 +71,21 @@ class _MainScreenState extends State<MainScreen> {
           onPageChanged: _pageChanged,
           children: _pages),
     );
+  }
+
+  Future _showAlert(BuildContext context) async {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return SimpleDialog(
+            title: Text(S.current.floatButtonDialogTitle),
+            children: [
+              SimpleDialogOption(
+                  child: Text(S.current.floatButtonDialogUserEmpty)),
+              SimpleDialogOption(
+                  child: Text(S.current.floatButtonDialogUserHint))
+            ],
+          );
+        });
   }
 }

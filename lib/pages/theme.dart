@@ -2,11 +2,12 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:gitfy/common/color.dart';
-import 'package:gitfy/states/user_model.dart';
+import 'package:gitfy/states/user_state.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
 import '../generated/l10n.dart';
-import '../states/locale_model.dart';
+import '../states/locale_state.dart';
 import 'main_screen.dart';
 
 class Material3App extends StatelessWidget {
@@ -16,8 +17,8 @@ class Material3App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (_) => LocaleModel()),
-          ChangeNotifierProvider(create: (_) => UserModel())
+          ChangeNotifierProvider(create: (_) => LocaleState()),
+          ChangeNotifierProvider(create: (_) => UserState())
         ],
         child: DynamicColorBuilder(
             builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
@@ -30,40 +31,44 @@ class Material3App extends StatelessWidget {
             lightColorScheme = materialScheme(false);
             darkColorScheme = materialScheme(true);
           }
-          return Consumer<LocaleModel>(
-              builder: (BuildContext context, localeModel, child) {
-            return MaterialApp(
-              title: 'Gitfy',
-              theme:
-                  ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
-              darkTheme:
-                  ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-              home: const MainScreen(),
-              locale: localeModel.getLocale(),
-              supportedLocales: S.delegate.supportedLocales,
-              localizationsDelegates: const [
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-              ],
-              localeResolutionCallback: (sysLocale, supportedLocales) {
-                if (localeModel.getLocale() != null) {
-                  //如果已经选定语言，则不跟随系统
-                  return localeModel.getLocale();
-                } else {
-                  //跟随系统
-                  Locale locale;
-                  if (supportedLocales.contains(sysLocale)) {
-                    locale = sysLocale!;
-                  } else {
-                    //如果系统语言不是中文简体或美国英语，则默认使用美国英语
-                    locale = const Locale('en', 'US');
-                  }
-                  return locale;
-                }
-              },
-            );
+          return Consumer<LocaleState>(
+              builder: (BuildContext context, localeState, child) {
+            return OKToast(
+                position: const ToastPosition(align: Alignment.bottomCenter),
+                backgroundColor:
+                    Theme.of(context).backgroundColor.withOpacity(0.5),
+                child: MaterialApp(
+                  title: 'Gitfy',
+                  theme: ThemeData(
+                      useMaterial3: true, colorScheme: lightColorScheme),
+                  darkTheme: ThemeData(
+                      useMaterial3: true, colorScheme: darkColorScheme),
+                  home: const MainScreen(),
+                  locale: localeState.getLocale(),
+                  supportedLocales: S.delegate.supportedLocales,
+                  localizationsDelegates: const [
+                    S.delegate,
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                  ],
+                  localeResolutionCallback: (sysLocale, supportedLocales) {
+                    if (localeState.getLocale() != null) {
+                      //如果已经选定语言，则不跟随系统
+                      return localeState.getLocale();
+                    } else {
+                      //跟随系统
+                      Locale locale;
+                      if (supportedLocales.contains(sysLocale)) {
+                        locale = sysLocale!;
+                      } else {
+                        //如果系统语言不是中文简体或美国英语，则默认使用美国英语
+                        locale = const Locale('en', 'US');
+                      }
+                      return locale;
+                    }
+                  },
+                ));
           });
         }));
   }

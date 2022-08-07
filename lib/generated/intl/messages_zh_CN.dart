@@ -36,6 +36,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "detailPageTabBarReadmeTab": MessageLookupByLibrary.simpleMessage("自述"),
         "detailPageTabBarReleasesTab":
             MessageLookupByLibrary.simpleMessage("版本"),
+        "floatButtonDialogTitle": MessageLookupByLibrary.simpleMessage("注意"),
+        "floatButtonDialogUserEmpty":
+            MessageLookupByLibrary.simpleMessage("当前用户为空"),
+        "floatButtonDialogUserHint":
+            MessageLookupByLibrary.simpleMessage("请先前往设置页注册或登录"),
+        "settingsPageSyncButtonRegister":
+            MessageLookupByLibrary.simpleMessage("注册"),
+        "settingsPageSyncButtonSwitch":
+            MessageLookupByLibrary.simpleMessage("切换"),
+        "settingsPageSyncButtonSync":
+            MessageLookupByLibrary.simpleMessage("同步"),
+        "settingsPageSyncCredentials":
+            MessageLookupByLibrary.simpleMessage("用户凭证"),
+        "settingsPageSyncSwitch": MessageLookupByLibrary.simpleMessage("用户切换"),
         "settingsPageTileAppVersion":
             MessageLookupByLibrary.simpleMessage("应用版本"),
         "settingsPageTileAuthor": MessageLookupByLibrary.simpleMessage("作者"),
@@ -48,6 +62,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("源代码"),
         "settingsPageTileSync": MessageLookupByLibrary.simpleMessage("同步"),
         "settingsPageTitleCommon": MessageLookupByLibrary.simpleMessage("常规"),
-        "settingsPageTitleOthers": MessageLookupByLibrary.simpleMessage("其它")
+        "settingsPageTitleOthers": MessageLookupByLibrary.simpleMessage("其它"),
+        "toastCopiedToClipboard":
+            MessageLookupByLibrary.simpleMessage("已复制到剪贴板"),
+        "toastRegisterSuccess": MessageLookupByLibrary.simpleMessage("注册成功"),
+        "toastSwitchSuccess": MessageLookupByLibrary.simpleMessage("切换成功"),
+        "toastSyncProcessing": MessageLookupByLibrary.simpleMessage("同步中...")
       };
 }

@@ -38,6 +38,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Readme"),
         "detailPageTabBarReleasesTab":
             MessageLookupByLibrary.simpleMessage("Releases"),
+        "floatButtonDialogTitle":
+            MessageLookupByLibrary.simpleMessage("Notice"),
+        "floatButtonDialogUserEmpty":
+            MessageLookupByLibrary.simpleMessage("Current user is empty"),
+        "floatButtonDialogUserHint": MessageLookupByLibrary.simpleMessage(
+            "Please go to the settings page to register or login"),
+        "settingsPageSyncButtonRegister":
+            MessageLookupByLibrary.simpleMessage("Register"),
+        "settingsPageSyncButtonSwitch":
+            MessageLookupByLibrary.simpleMessage("Switch"),
+        "settingsPageSyncButtonSync":
+            MessageLookupByLibrary.simpleMessage("Sync"),
+        "settingsPageSyncCredentials":
+            MessageLookupByLibrary.simpleMessage("Credentials"),
+        "settingsPageSyncSwitch":
+            MessageLookupByLibrary.simpleMessage("Switch user"),
         "settingsPageTileAppVersion":
             MessageLookupByLibrary.simpleMessage("App Version"),
         "settingsPageTileAuthor":
@@ -56,6 +72,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsPageTitleCommon":
             MessageLookupByLibrary.simpleMessage("Common"),
         "settingsPageTitleOthers":
-            MessageLookupByLibrary.simpleMessage("Others")
+            MessageLookupByLibrary.simpleMessage("Others"),
+        "toastCopiedToClipboard":
+            MessageLookupByLibrary.simpleMessage("Copied to clipboard"),
+        "toastRegisterSuccess":
+            MessageLookupByLibrary.simpleMessage("Registered successfully"),
+        "toastSwitchSuccess":
+            MessageLookupByLibrary.simpleMessage("Switched successfully"),
+        "toastSyncProcessing":
+            MessageLookupByLibrary.simpleMessage("Syncing...")
       };
 }
